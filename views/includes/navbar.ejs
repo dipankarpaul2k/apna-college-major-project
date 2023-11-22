@@ -1,0 +1,101 @@
+<nav
+  class="navbar navbar-expand-lg bg-body-light border-bottom bg-white sticky-top mb-1"
+  style="box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1)"
+>
+  <div class="container-fluid">
+    <a class="navbar-brand fw-bold d-none d-sm-flex" href="/listings">
+      <i class="ri-compass-line"></i>
+      <span class="d-none d-lg-inline">WanderLust</span>
+    </a>
+
+    <!-- search bar -->
+    <div class="navbar-nav rounded-pill d-flex d-lg-none search_container">
+      <form
+        class="d-flex search_form"
+        role="search"
+        action="/listings/search"
+        method="post"
+      >
+        <input
+          class="form-control me-2 search_input"
+          type="search"
+          placeholder="Search city or country"
+          aria-label="Search"
+          name="searchInput"
+        />
+        <button class="btn btn-sm rounded-pill search_btn" type="submit">
+          <i class="ri-search-line"></i>
+        </button>
+      </form>
+    </div>
+    <!-- search bar end -->
+
+    <!-- Toggle menu button -->
+    <button
+      id="navbar_toggler"
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNavAltMarkup"
+      aria-label="Toggle navigation"
+      onclick="toggleIcon()"
+    >
+      <i id="menu_icon" class="ri-menu-line"></i>
+    </button>
+
+    <!-- Toggle menu -->
+    <div class="collapse navbar-collapse text-center" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link" href="/listings">Explore</a>
+      </div>
+
+      <!-- search bar -->
+      <div
+        class="navbar-nav ms-auto rounded-pill d-none d-lg-flex search_container"
+      >
+        <form
+          class="d-flex search_form"
+          role="search"
+          action="/listings/search"
+          method="post"
+        >
+          <input
+            class="form-control me-2 search_input"
+            type="search"
+            placeholder="Search city or country"
+            aria-label="Search"
+            name="searchInput"
+          />
+          <button class="btn btn-sm rounded-pill search_btn" type="submit">
+            <i class="ri-search-line"></i>
+          </button>
+        </form>
+      </div>
+      <!-- search bar end -->
+
+      <div class="navbar-nav ms-auto">
+        <a class="nav-link" href="/listings/new">Host your home</a>
+        <!-- if user exist -->
+        <% if (!currUser) { %>
+
+        <a class="nav-link logInLink" href="/login"> Log In </a>
+        <a class="btn btn-primary" href="/signup"> Sign Up </a>
+
+        <% } %>
+        <!-- if user does not exist -->
+        <% if (currUser) { %>
+
+        <a class="nav-link" href="/wishlist">Wishlist</a>
+        <a
+          class="btn btn-primary"
+          href="#logoutModal"
+          data-bs-toggle="modal"
+          data-bs-target="#logoutModal"
+          >Log Out
+        </a>
+
+        <% } %>
+      </div>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,43 @@
+<div class="container" id="flashMessage">
+  <div class="row justify-content-center align-items-center">
+    <div class="col-lg-6">
+      <!-- because success is an array so you also have to check its length -->
+      <% if (success && success.length) { %>
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <!-- success message -->
+        <p class="mb-0"><%= success %></p>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="alert"
+          aria-label="Close button"
+        ></button>
+      </div>
+      <% } %>
+
+      <!-- because error is an array so you also have to check its length -->
+      <% if (error && error.length) { %>
+      <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <!-- error message -->
+        <p class="mb-0"><%= error %></p>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="alert"
+          aria-label="Close button"
+        ></button>
+      </div>
+      <% } %>
+    </div>
+  </div>
+</div>
+
+<script>
+  // To hide the flash message after 1 second
+  setTimeout(function () {
+    const flashMessage = document.getElementById("flashMessage");
+    if (flashMessage) {
+      flashMessage.remove(); // Remove msg from the DOM
+    }
+  }, 3000);
+</script>

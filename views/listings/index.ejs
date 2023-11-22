@@ -1,0 +1,60 @@
+<% layout("layouts/boilerplate") %>
+
+<div class="container mb-5">
+  <!-- Filters at the heading -->
+  <%- include("../includes/features.ejs") %>
+
+  <!-- row -->
+  <div class="row justify-content-center gy-4 mt-1">
+    <% allListings.forEach(e => { %>
+    <!-- column | Card details -->
+    <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
+      <a class="card_link" href="/listings/<%= e._id %>">
+        <div class="card indexCard">
+          <!-- card image container -->
+          <div class="imgCon">
+            <img
+              src="<%= e.image.url %>"
+              class="card-img-top card_img"
+              alt="listing image"
+            />
+          </div>
+
+          <!-- card image overlay -->
+          <% if (currUser) { %>
+          <!-- wishlist button -->
+          <div class="card-img-overlay text-end">
+            <form method="POST" action="/wishlist">
+              <input type="hidden" name="listingId" value="<%= e._id %>" />
+              <button
+                class="btn btn-outline-danger btn-lg p-1 wishlist_btn"
+                type="submit"
+              >
+                <i class="ri-heart-3-fill"></i>
+              </button>
+            </form>
+          </div>
+          <% } %>
+
+          <!-- card body container -->
+          <div class="card-body indexCardBody">
+            <h5 class="card-title fw-bold">
+              <%= e.location %>, <%= e.country %>
+            </h5>
+            <p class="card-text withoutTax m-0">
+              ₹<%= e.price.toLocaleString("en-IN") %>
+              <span class="perNight">night</span>
+            </p>
+            <p class="card-text withTax hide_price m-0">
+              ₹<%= (e.price + (e.price * 0.18)).toLocaleString("en-IN") %>
+              <span class="perNight">night including 18% GST</span>
+            </p>
+          </div>
+        </div>
+      </a>
+    </div>
+    <!-- column end -->
+    <% }) %>
+  </div>
+  <!-- row end -->
+</div>

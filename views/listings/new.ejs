@@ -1,0 +1,133 @@
+<% layout("layouts/boilerplate") %>
+
+<div class="container mb-5">
+  <!-- main row -->
+  <div class="row justify-content-center">
+    <!-- column -->
+    <div class="col-sm-11 col-lg-8">
+      <h3 class="heading">Add a new listings</h3>
+      <!-- form start -->
+      <form
+        action="/listings"
+        method="post"
+        novalidate
+        class="needs-validation"
+        enctype="multipart/form-data"
+      >
+      <!-- title input -->
+        <div class="mb-3">
+          <label for="title" class="form-label"
+            >Title<sup class="text-danger">*</sup>(must be within 50
+            characters)</label
+          >
+          <input
+            id="title"
+            class="form-control"
+            name="listing[title]"
+            type="text"
+            placeholder="Enter a title"
+            required
+            autocomplete="off"
+          />
+          <div class="invalid-feedback">Please provide a proper title.</div>
+        </div>
+
+        <!-- description input -->
+        <div class="mb-3">
+          <label for="description" class="form-label"
+            >Description<sup class="text-danger">*</sup>(must be within 150
+            words)</label
+          >
+          <textarea
+            id="description"
+            class="form-control"
+            name="listing[description]"
+            cols="30"
+            rows="5"
+            placeholder="Enter a description"
+            required
+          ></textarea>
+          <div class="invalid-feedback">
+            Please provide a short description.
+          </div>
+        </div>
+
+        <!-- image input -->
+        <div class="mb-3">
+          <label for="image" class="form-label">Upload Image</label>
+          <input
+            id="image"
+            class="form-control"
+            name="listing[image]"
+            type="file"
+            required
+          />
+          <div class="invalid-feedback">
+            Please upload an image.
+          </div>
+        </div>
+
+        <!-- sub row start -->
+        <div class="row">
+          <!-- column -->
+          <!-- price input -->
+          <div class="col-sm-4 mb-3">
+            <label for="price" class="form-label"
+              >Price<sup class="text-danger">*</sup></label
+            >
+            <input
+              id="price"
+              class="form-control"
+              name="listing[price]"
+              type="number"
+              placeholder="enter price ex. 1500"
+              required
+            />
+            <div class="invalid-feedback">Please enter a valid price.</div>
+          </div>
+
+          <!-- column -->
+          <!-- location input -->
+          <div class="col-sm-8 mb-3">
+            <label for="location" class="form-label"
+              >Location<sup class="text-danger">*</sup></label
+            >
+            <input
+              id="location"
+              class="form-control"
+              name="listing[location]"
+              type="text"
+              placeholder="enter location ex. Delhi"
+              required
+            />
+            <div class="invalid-feedback">Please enter a proper location.</div>
+          </div>
+        </div>
+        <!-- sub row end -->
+
+        <!-- country input -->
+        <div class="mb-3">
+          <label for="country" class="form-label"
+            >Country<sup class="text-danger">*</sup></label
+          >
+          <input
+            id="country"
+            class="form-control"
+            name="listing[country]"
+            type="text"
+            placeholder="enter country ex. India"
+            required
+          />
+          <div class="invalid-feedback">Please enter a valid country.</div>
+        </div>
+
+        <!-- submit button -->
+        <div class="text-center">
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+      </form>
+      <!-- form end -->
+    </div>
+  </div>
+  <!-- main row end -->
+</div>

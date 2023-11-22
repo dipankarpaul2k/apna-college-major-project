@@ -1,0 +1,96 @@
+<% layout("layouts/boilerplate") %>
+
+<div class="container mb-0" style="min-height: calc(100vh - 200px)">
+  <div class="row justify-content-center">
+    <!-- form column start -->
+    <div class="col-md-10 col-lg-6 col-xl-5">
+      <!-- heading -->
+      <p class="text-center h1 fw-bold mb-4 mx-1 mx-md-4 mt-4">Sign Up</p>
+
+      <!-- sign up form -->
+      <form action="/signup" method="post" class="needs-validation" novalidate>
+        <!-- Username input -->
+        <div class="mb-3">
+          <label class="form-label" for="username">Username</label>
+          <div class="input-group">
+            <span class="input-group-text" id="basic-addon1">
+              <i class="ri-hashtag"></i>
+            </span>
+            <input
+              type="text"
+              name="username"
+              id="username"
+              class="form-control"
+              placeholder="username"
+              required
+              autocomplete="off"
+              autofocus
+            />
+            <div class="invalid-feedback">Please enter a valid username.</div>
+          </div>
+          <div class="form-text">
+            Limited to 30 characters and must contain only letters, numbers,
+            periods and underscores. No symbols
+          </div>
+        </div>
+
+        <!-- Email input -->
+        <div class="mb-3">
+          <label class="form-label" for="email">Email</label>
+          <div class="input-group">
+            <span class="input-group-text" id="basic-addon1">
+              <i class="ri-at-line"></i>
+            </span>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              class="form-control"
+              placeholder="name@example.com"
+              required
+              autocomplete="off"
+            />
+            <div class="invalid-feedback">Please enter a valid email.</div>
+          </div>
+          <div class="form-text">
+            We'll never share your email with anyone else
+          </div>
+        </div>
+
+        <!-- Password input -->
+        <div class="mb-3">
+          <label class="form-label" for="password">Password</label>
+          <div class="input-group">
+            <span class="input-group-text" id="basic-addon1">
+              <i class="ri-lock-2-line"></i>
+            </span>
+            <input
+              type="password"
+              name="password"
+              id="password"
+              class="form-control"
+              placeholder="Password"
+              required
+              autocomplete="off"
+            />
+            <div class="invalid-feedback">Please enter a valid password.</div>
+          </div>
+          <div class="form-text">
+            Use at least six characters: numbers, letters and special characters
+            (like !$@%)
+          </div>
+        </div>
+
+        <!-- Submit button -->
+        <div class="text-center mb-4">
+          <button type="submit" class="btn btn-primary btn-block w-100 py-2">
+            Sign in
+          </button>
+        </div>
+        <!-- Submit button end -->
+      </form>
+      <!-- sign up form end -->
+    </div>
+    <!-- form column end -->
+  </div>
+</div>

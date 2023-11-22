@@ -1,0 +1,22 @@
+# Testing API routes using "REST Client" VS Code Extension.
+
+### Post req.
+POST http://localhost:4000/listings
+Content-Type: application/json
+
+{
+    "listing": {
+        "title": "new title",
+    }
+}
+
+### Post req.
+POST http://localhost:4000/listings/654905180a96bfbd808565fa/reviews
+Content-Type: application/json
+
+{
+    "review": {
+        "rating": 5,
+        "comment": "Good place to visit."
+    }
+}

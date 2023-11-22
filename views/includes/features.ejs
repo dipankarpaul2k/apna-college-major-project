@@ -1,0 +1,96 @@
+<!-- Features -->
+<div
+  id="head_filter_con"
+  class="row justify-content-between align-items-center mb-1 mt-1"
+>
+  <!-- filters -->
+  <div class="col-lg-8 m-0">
+    <ul id="filters" class="p-0">
+      <li class="filter">
+        <a class="p-0" href="/listings/pools">
+          <i class="fa-solid fa-person-swimming"></i><br />
+          <small>Pools</small>
+        </a>
+      </li>
+      <li class="filter">
+        <a class="p-0" href="/listings/rooms">
+          <i class="fa-solid fa-bed"></i><br />
+          <small>Rooms</small>
+        </a>
+      </li>
+      <li class="filter">
+        <a class="p-0" href="/listings/beach">
+          <i class="fa-solid fa-umbrella-beach"></i><br />
+          <small>Beach</small>
+        </a>
+      </li>
+      <li class="filter">
+        <a class="p-0" href="/listings/views">
+          <i class="fa-solid fa-mountain-sun"></i><br />
+          <small>Views</small>
+        </a>
+      </li>
+      <li class="filter">
+        <a class="p-0" href="/listings/farms">
+          <i class="fa-solid fa-house-chimney"></i><br />
+          <small>Farms</small>
+        </a>
+      </li>
+      <li class="filter">
+        <a class="p-0" href="/listings/skiing">
+          <i class="fa-solid fa-person-skiing-nordic"></i><br />
+          <small>Skiing</small>
+        </a>
+      </li>
+      <li class="filter">
+        <a class="p-0" href="/listings/cities">
+          <i class="fa-solid fa-city"></i><br />
+          <small>Cities</small>
+        </a>
+      </li>
+      <li class="filter">
+        <a class="p-0" href="/listings/arctic">
+          <i class="fa-regular fa-snowflake"></i><br />
+          <small>Arctic</small>
+        </a>
+      </li>
+      <li class="filter">
+        <a class="p-0" href="/listings/camping">
+          <i class="fa-solid fa-campground"></i><br />
+          <small>Camping</small>
+        </a>
+      </li>
+      <li class="filter">
+        <a class="p-0" href="/listings/golfing">
+          <i class="fa-solid fa-golf-ball-tee"></i><br />
+          <small>Golfing</small>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <!-- tax switch button -->
+  <div class="col-lg-3 m-0">
+    <div
+      id="taxes"
+      class="d-flex d-lg-block justify-content-center border rounded p-2 ps-3 pe-3"
+    >
+      <div class="form-check form-switch form-check-reverse">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          id="flexSwitchCheckReverse"
+          onclick="showPriceWithTax()"
+        />
+        <label
+          id="tax_switch_label"
+          class="form-check-label"
+          for="flexSwitchCheckReverse"
+          style="text-wrap: balance"
+        >
+          Display total after tax
+        </label>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,132 @@
+<% layout("layouts/boilerplate") %>
+
+<div class="container mb-5">
+  <div class="row justify-content-center">
+    <div class="col-sm-11 col-lg-8">
+      <h2 class="heading">Edit the listing</h2>
+      <!-- form start -->
+      <form
+        action="/listings/<%= listing._id %>?_method=PUT"
+        method="POST"
+        class="needs-validation"
+        novalidate
+        enctype="multipart/form-data"
+      >
+        <!-- <input type="hidden" name="_method" value="put" /> -->
+        <!-- title input -->
+        <div class="mb-3">
+          <label for="title" class="form-label"
+            >Title<sup class="text-danger">*</sup>(must be within 50
+            characters)</label
+          >
+          <input
+            id="title"
+            class="form-control"
+            name="listing[title]"
+            type="text"
+            value="<%= listing.title %>"
+            required
+          />
+          <div class="invalid-feedback">Please provide a proper title.</div>
+        </div>
+
+        <!-- description input -->
+        <div class="mb-3">
+          <label for="description" class="form-label"
+            >Description<sup class="text-danger">*</sup>(must be within 150
+            words)</label
+          >
+          <textarea
+            id="description"
+            class="form-control"
+            name="listing[description]"
+            cols="30"
+            rows="5"
+            required
+          >
+<%= listing.description %></textarea
+          >
+          <div class="invalid-feedback">
+            Please provide a short description.
+          </div>
+        </div>
+
+        <!-- image preview -->
+        <div class="mb-3">
+          <p>Preview original image</p>
+          <img src="<%= originalImageUrl %>" alt="Preview original listing image">
+        </div>
+
+        <!-- image input -->
+        <div class="mb-3">
+          <label for="image" class="form-label"
+            >Upload image<sup class="text-danger">*</sup></label
+          >
+          <input
+            id="image"
+            class="form-control"
+            name="listing[image]"
+            type="file"
+          />
+        </div>
+
+        <!-- sub row start-->
+        <div class="row">
+          <!-- column start -->
+          <div class="col-sm-4 mb-3">
+            <label for="price" class="form-label"
+              >Price<sup class="text-danger">*</sup></label
+            >
+            <input
+              id="price"
+              class="form-control"
+              name="listing[price]"
+              type="number"
+              value="<%= listing.price %>"
+              required
+            />
+            <div class="invalid-feedback">Please enter a valid price.</div>
+          </div>
+
+          <div class="col-sm-8 mb-3">
+            <label for="location" class="form-label"
+              >Location<sup class="text-danger">*</sup></label
+            >
+            <input
+              id="location"
+              class="form-control"
+              name="listing[location]"
+              type="text"
+              value="<%= listing.location %>"
+              required
+            />
+            <div class="invalid-feedback">Please enter a proper location.</div>
+          </div>
+          <!-- column end -->
+        </div>
+        <!-- sub row end -->
+
+        <div class="mb-3">
+          <label for="country" class="form-label"
+            >Country<sup class="text-danger">*</sup></label
+          >
+          <input
+            id="country"
+            class="form-control"
+            name="listing[country]"
+            type="text"
+            value="<%= listing.country %>"
+            required
+          />
+          <div class="invalid-feedback">Please enter a valid country.</div>
+        </div>
+
+        <!-- submit -->
+        <div class="text-center">
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+      </form>
+      <!-- form end -->
+    </div>
+  </div>
+</div>

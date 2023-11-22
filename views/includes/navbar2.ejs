@@ -1,0 +1,61 @@
+<!-- Second nav -->
+<nav
+  class="navbar navbar-expand-lg d-block d-sm-none sticky-bottom bg-transparent"
+>
+  <div class="container-fluid justify-content-center">
+    <ul
+      id="nav2"
+      class="navbar-nav w-100 pt-1 pb-1 d-flex flex-row justify-content-evenly align-items-center bg-white rounded-pill"
+    >
+      <!-- Explore link -->
+      <li class="nav-item nav2_item">
+        <a class="nav-link text-center nav2_link p-0" href="/listings">
+          <i class="ri-search-2-line"></i><br />
+          Explore
+        </a>
+      </li>
+
+      <!-- Host home link -->
+      <li class="nav-item nav2_item">
+        <a class="nav-link text-center nav2_link p-0" href="/listings/new">
+          <i class="ri-home-2-line"></i><br />
+          Host Home
+        </a>
+      </li>
+
+      <!-- if user exist -->
+      <% if (!currUser) { %>
+
+      <li class="nav-item nav2_item">
+        <a class="nav-link text-center nav2_link p-0" href="/login">
+          <i class="ri-user-line"></i><br />
+          Log In
+        </a>
+      </li>
+
+      <% } %>
+      <!-- if user does not exist -->
+      <% if (currUser) { %>
+
+      <li class="nav-item nav2_item">
+        <a class="nav-link text-center nav2_link p-0" href="/wishlist">
+          <i class="ri-heart-3-line p-0"></i><br />
+          Wishlist
+        </a>
+      </li>
+      <li class="nav-item nav2_item">
+        <a
+          class="nav-link text-center nav2_link p-0"
+          href="#logoutModal"
+          data-bs-toggle="modal"
+          data-bs-target="#logoutModal"
+        >
+          <i class="ri-user-unfollow-line p-0"></i><br />
+          Log Out
+        </a>
+      </li>
+
+      <% } %>
+    </ul>
+  </div>
+</nav>

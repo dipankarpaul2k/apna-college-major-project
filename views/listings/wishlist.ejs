@@ -1,0 +1,80 @@
+<% layout("layouts/boilerplate") %>
+
+<!-- If there is any item in wishlist -->
+<% if (wishlist && wishlist.length > 0) { %>
+
+<div class="container mb-5" style="min-height: calc(100vh - 250px)">
+  <!-- row -->
+  <div class="row justify-content-center gy-4 mt-1">
+    <% wishlist.forEach(e => { %>
+    <!-- column -->
+    <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
+      <a class="card_link" href="/listings/<%= e.listingId._id %>">
+        <div class="card indexCard">
+          <!-- card image container -->
+          <div class="imgCon">
+            <img
+              src="<%= e.listingId.image.url %>"
+              class="card-img-top card_img"
+              alt="listing image"
+            />
+          </div>
+          <!-- card image overlay -->
+          <div class="card-img-overlay text-end">
+            <form method="POST" action="/wishlist/<%= e._id %>?_method=DELETE">
+              <input
+                type="hidden"
+                name="listingId"
+                value="<%= e.listingId._id %>"
+              />
+              <button
+                class="btn btn-outline-danger btn-lg p-1 wishlist_btn"
+                type="submit"
+              >
+                <i class="ri-close-circle-fill"></i>
+              </button>
+            </form>
+          </div>
+
+          <!-- card body container -->
+          <div class="card-body indexCardBody">
+            <h5 class="card-title fw-bold">
+              <%= e.listingId.location %>, <%= e.listingId.country %>
+            </h5>
+            <p class="card-text withoutTax m-0">
+              ₹<%= e.listingId.price.toLocaleString("en-IN") %>
+              <span class="perNight">night</span>
+            </p>
+            <p class="card-text withTax hide_price m-0">
+              ₹<%= (e.listingId.price + (e.listingId.price *
+              0.18)).toLocaleString("en-IN") %>
+              <span class="perNight">night including 18% GST</span>
+            </p>
+          </div>
+        </div>
+      </a>
+    </div>
+    <!-- column end -->
+    <% }) %>
+  </div>
+  <!-- row end -->
+</div>
+
+<% } else { %>
+
+<!-- If wishlist is empty -->
+<div
+  class="container-fluid mb-5 d-flex justify-content-center align-items-center"
+  style="min-height: calc(100vh - 250px)"
+>
+  <div class="row">
+    <div class="col">
+      <p class="display-5 opacity-50">
+        <i class="ri-emotion-unhappy-line"></i>
+        Wishlist Is Empty
+      </p>
+    </div>
+  </div>
+</div>
+
+<% } %>
